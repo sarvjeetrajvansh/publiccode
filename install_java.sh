@@ -8,7 +8,6 @@ apt-get install default-jdk -y
  cat << EOF >> /etc/environment
 JAVA_HOME=`readlink -f $(which java)`
 EOF
+source "/etc/environment"
 echo $JAVA_HOME
-(
-source /etc/environment
-)
+
