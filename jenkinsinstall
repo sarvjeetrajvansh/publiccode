@@ -1,6 +1,6 @@
 #! /bin/sh
 
-apt-get update && apt-get upgrade -y
+apt-get update -y && apt-get upgrade -y
 apt-get install vim -y
 
 apt-get install default-jdk -y
@@ -9,13 +9,11 @@ apt-get install default-jdk -y
 JAVA_HOME=`readlink -f $(which java)`
 EOF
 
-
-source /etc/environment
+source "/etc/environment"
 echo $JAVA_HOME
-
 
 wget -q -O - https://pkg.jenkins.io/debian/jenkins-ci.org.key | sudo apt-key add -
 sudo sh -c 'echo deb http://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'
-sudo apt-get update
+sudo apt-get update -y
 apt-get install jenkins -y
 cat /var/lib/jenkins/secrets/initialAdminPassword 
