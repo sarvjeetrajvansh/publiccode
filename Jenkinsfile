@@ -3,11 +3,11 @@ pipeline {
     stages {
         stage('build') {
             steps {
-                sh 'docker run -dt --name python python:latest'
-                sh 'docker ps'
-                sh 'docker exec -it python python -V'
-                sh 'date'
-                sh 'echo "Build Done"'
+                sh 'sudo docker run -dt --name python python:latest'
+                sh 'sudo docker ps'
+                sh 'sudo docker exec -it python python -V'
+                sh 'sudo date'
+                sh 'sudo echo "Build Done"'
             }
         }
     }
