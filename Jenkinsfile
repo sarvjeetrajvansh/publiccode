@@ -4,9 +4,9 @@ pipeline {
         stage('build') {
             steps {
                 sh 'date'
-                sh 'docker run -dt --name python python:latest'
+                sh 'docker run -d --name python python:latest'
                 sh 'docker ps'
-                sh 'docker exec -it python python -V'
+                sh 'docker exec -i python python -V'
                 sh 'echo "Build Done"'
             }
         }
